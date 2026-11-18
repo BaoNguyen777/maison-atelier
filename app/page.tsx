@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Check, Menu, ShieldCheck, Truck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ShieldCheck, Truck } from "lucide-react";
 
 const products = [
   { id: "01", name: "Silk Everyday Shirt", category: "READY TO WEAR", price: "₫1.890.000", note: "Mulberry silk · Sand", badge: "BESTSELLER", image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=1000&q=88&fit=crop" },
@@ -20,8 +20,8 @@ export default function MaisonAtelierPage() {
       <div className="bg-[#29251f] px-4 py-2.5 text-center text-[9px] tracking-[.16em] text-white">COMPLIMENTARY SHIPPING ON ORDERS OVER ₫1.500.000 <span className="mx-2 text-white/40">·</span> MADE IN VIETNAM</div>
       <header className="sticky top-0 z-40 border-b border-[#e8e2d8] bg-[#f7f5f0]/95 backdrop-blur">
         <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-14">
-          <button aria-label="Open navigation" className="md:hidden"><Menu size={19}/></button>
-          <nav className="hidden items-center gap-7 text-[10px] tracking-[.12em] md:flex"><a href="#shop" className="hover:text-[#9b7756]">SHOP ALL</a><a href="#shop" className="hover:text-[#9b7756]">READY TO WEAR</a><a href="#story" className="hover:text-[#9b7756]">OUR MATERIALS</a></nav>
+          
+          <nav className="flex items-center gap-3 text-[8px] tracking-[.1em] sm:gap-6 sm:text-[10px]"><a href="#shop" className="hover:text-[#9b7756]">SHOP</a><a href="#story" className="hover:text-[#9b7756]">OUR STORY</a></nav>
           <a href="#top" className="absolute left-1/2 -translate-x-1/2 font-serif text-[21px] tracking-[.14em] sm:text-2xl">MAISON ATELIER</a>
           <a href="#shop" className="inline-flex items-center gap-2 text-[9px] tracking-[.13em]">DISCOVER <ArrowUpRight size={13}/></a>
         </div>
@@ -42,7 +42,7 @@ export default function MaisonAtelierPage() {
 
       <section id="shop" className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 lg:px-14 lg:py-24">
         <div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-[9px] tracking-[.2em] text-[#9b7756]">CURATED FOR YOUR EVERYDAY</p><h2 className="mt-3 font-serif text-4xl tracking-[-.045em] sm:text-6xl">Shop the collection.</h2><p className="mt-3 text-[12px] text-[#81786e]">Pieces to wear on repeat, made with a lighter touch.</p></div><a href="#story" className="inline-flex items-center gap-3 border-b border-[#29251f] pb-2 text-[9px] tracking-[.12em]">DISCOVER OUR SILK <ArrowUpRight size={13}/></a></div>
-        <div className="mt-9 flex flex-wrap gap-2 border-b border-[#e2dbd1] pb-4 text-[9px] tracking-[.1em]"><a href="#shop" className="bg-[#29251f] px-4 py-2.5 text-white">ALL PIECES</a><a href="#shop" className="border border-[#ded7cc] px-4 py-2.5 hover:bg-[#efebe3]">READY TO WEAR</a><a href="#shop" className="border border-[#ded7cc] px-4 py-2.5 hover:bg-[#efebe3]">ACCESSORIES</a><a href="#shop" className="border border-[#ded7cc] px-4 py-2.5 hover:bg-[#efebe3]">OCCASION</a></div>
+        <div className="mt-8 flex items-center justify-between border-t border-[#e2dbd1] pt-4 text-[9px] tracking-[.12em]"><span>THE EDIT / 01—04</span><span className="text-[#8b8278]">DESIGNED IN VIETNAM</span></div>
         <div className="mt-7 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">{products.map((product)=><article key={product.id} className="group"><a href="#contact" className="block"><div className="relative aspect-[4/5] overflow-hidden bg-[#e9e3da]"><Image src={product.image} alt={product.name} fill unoptimized sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-700 group-hover:scale-[1.04]"/><span className="absolute left-3 top-3 bg-[#f7f5f0] px-3 py-2 text-[8px] tracking-[.12em]">{product.badge}</span><span className="absolute bottom-3 right-3 grid h-10 w-10 place-items-center rounded-full bg-[#f7f5f0] transition group-hover:bg-[#29251f] group-hover:text-white"><ArrowUpRight size={16}/></span></div><div className="flex items-start justify-between gap-3 pt-4"><div><p className="text-[8px] tracking-[.14em] text-[#9b7756]">{product.category}</p><h3 className="mt-2 font-serif text-[20px]">{product.name}</h3><p className="mt-1 text-[10px] text-[#8b8278]">{product.note}</p></div><span className="pt-5 text-[10px] whitespace-nowrap">{product.price}</span></div></a><a href="#contact" className="mt-4 inline-flex w-full items-center justify-between border border-[#d9d1c6] px-4 py-3 text-[8px] tracking-[.13em] transition hover:border-[#29251f] hover:bg-[#29251f] hover:text-white">VIEW PRODUCT <ArrowUpRight size={13}/></a></article>)}</div>
       </section>
 
