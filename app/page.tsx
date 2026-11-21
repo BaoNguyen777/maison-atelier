@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
-  ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight,
+  ArrowRight, ArrowUpRight, Check,
   Minus, Plus, ShoppingBag, Sparkles, X,
 } from "lucide-react";
 
