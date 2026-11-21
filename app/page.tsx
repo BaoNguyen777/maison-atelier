@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight, ArrowUpRight, Check,
   Minus, Plus, ShoppingBag, Sparkles, X,
@@ -30,6 +30,18 @@ export default function MaisonAtelierPage() {
   const [bag, setBag] = useState<Record<string, number>>({});
   const [bagOpen, setBagOpen] = useState(false);
   const [notice, setNotice] = useState("");
+
+  useEffect(() => {
+    if (!selected && !bagOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelected(null);
+        setBagOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [selected, bagOpen]);
 
   const visibleProducts = useMemo(
     () => filter === "Tất cả" ? products : products.filter((product) => product.group === filter),
@@ -72,7 +84,7 @@ export default function MaisonAtelierPage() {
   return (
     <main id="top" className="min-h-screen overflow-hidden bg-[#f7f5f0] text-[#28241f]">
       <div className="bg-[#29251f] px-4 py-2.5 text-center text-[9px] tracking-[.12em] text-white sm:text-[10px]">
-        ƯU ĐÃI GIAO HÀNG TOÀN QUỐC CHO ĐƠN TỪ 1.500.000₫ <span className="mx-2 text-white/40">·</span> TINH THẦN LỤA VIỆT
+        BỘ SƯU TẬP LẤY CẢM HỨNG TỪ LỤA VIỆT <span className="mx-2 text-white/40">·</span> PHONG CÁCH ĐƯƠNG ĐẠI
       </div>
 
       <header className="sticky top-0 z-40 border-b border-[#e8e2d8] bg-[#f7f5f0]/95 backdrop-blur">
